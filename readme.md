@@ -81,4 +81,87 @@ Chapter 2: Running Ruby
     Process finished with exit code 0
 
     With the Exercise practice:
-    
+    1. Run Ruby Interactively
+    An irb session is a great place to start experimenting with Ruby code. It gives you instant feedback.
+    Fire up an irb session from your command line:
+    irb
+    Once it starts, you'll see a prompt where you can type in any Ruby code. Here's what our irb prompt looks like:
+    >>
+    If your prompt looks slightly different than ours, don't worry about it.
+    For example, you may see something like this:
+    irb(main):001:0>
+    However your prompt looks, this is where you type in Ruby expressions for irb to evaluate.
+    Not surprisingly, Ruby is pretty good at math. So a really simple use of irb is as a calculator.
+    Type in the following expression that adds two numbers together, then press Return:
+    >> 1 + 2
+    Notice when you hit Return, the Ruby expression you typed in is evaluated and the result is printed out on the
+    subsequent irb line after =>, like this
+    => 3
+    Now it's your turn to have a go at irb (and test your math skills). Type in a Ruby expression to compute the number
+    of hours in a calendar year.
+    Next, create the string literal "Hello, Ruby!".
+    Assign that string to a variable named greeting.
+    Finally, use the upcase method to print the greeting in all upper case letters.
+    When you're done, exit the irb session by typing, wait for it... exit (or Ctrl-D):
+    >> exit
+    So when you're in an irb session, the Ruby interpreter runs in a read-eval-print loop (REPL).
+    It reads the expression you type, evaluates the expression, and then prints the result.
+    That's very handy!
+
+    In my iTerm:
+    $ irb
+    2.1.2 :001 > 1 + 2
+     => 3
+    2.1.2 :002 > 24 * 365
+     => 8760
+    2.1.2 :003 > "Hello, Ruby!"
+     => "Hello, Ruby!"
+    2.1.2 :004 > greeting = "Hello, Ruby!"
+     => "Hello, Ruby!"
+    2.1.2 :005 > greeting.upcase
+     => "HELLO, RUBY!"
+    2.1.2 :006 > exit
+
+    2. Write a Ruby Program
+    While irb is good for experimenting with Ruby in an interactive environment, there's no way in irb to save what you
+    typed in and run it again later. To do that, we'll need to put our code in a Ruby program file. If you haven't
+    already chosen a text editor, go ahead and install a text editor before moving on.
+    Create and Run a Ruby Program File
+    Once you have a good text editor installed, you're ready to write your first Ruby program file.
+    Start by creating a directory called studio_game to hold the files you create while taking this course and change
+    into this directory. The commands to do that are the same regardless of which operating system you're using, but the
+    directory structure is slightly different.
+    Create the studio_game directory in your home directory (represented by the tilde character).
+    To create the directory and change into it, type the following two commands at the command prompt
+    (not in the text editor):
+    mkdir ~/studio_game
+    cd ~/studio_game
+    Next, create a new file called studio_game.rb. Make sure to save the file in the studio_game directory we created in
+    the previous step.
+    We want the game to start by printing a welcome message. So in your studio_game.rb file, type in the Ruby code to
+    print "Welcome!" to the screen. Remember that irb always prints results to the screen, whereas in a Ruby program
+    file you need to use puts to print results to the screen.
+    Save the file!
+    Now, back over at your operating system command prompt (not in the irb session), run your program using the ruby
+    command and passing the name of your Ruby program file as the argument:
+    ruby studio_game.rb
+    Tip: Most Ruby-aware text editors and IDEs offer a way to run Ruby program files from within the editor.
+    For example, if you're using TextMate, you can run Ruby program files by pressing Command+R. If you're using
+    RubyMine, press Shift + Control + R.
+    Now, similar to what we did in the video, add your program to assign the welcome message to a variable named
+    greeting, and print it uppercase three times in a loop.
+    Don't worry if the syntax doesn't make sense at this point. We'll learn more about strings, variables, methods,
+    and blocks in future exercises. The important part is that you know how to run a Ruby program file.
+    After printing the greeting, it might be handy for the game to print the time it started. Use the built-in Time
+    class to print the current time.
+    Run the program to make sure you get what you expect!
+
+    Run Shift + Control + R in my RubyMine:
+    /Users/RiverGracefish/.rvm/rubies/ruby-2.1.2/bin/ruby -e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift) /Users/RiverGracefish/workspace/self_study/pragmatic_studio/ruby_course/studio_game/studio_game_2.rb
+    Welcome!
+    WELCOME!
+    WELCOME!
+    WELCOME!
+    2015-05-21 20:29:53 -0600
+
+    Process finished with exit code 0
