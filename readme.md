@@ -70,7 +70,8 @@ Chapter 2: Running Ruby
     RUBY IS FUN!
     2015-05-21 19:56:21 -0600
     Or I can run [ Control + Shift + R ] in my RubyMine:
-    /Users/.rvm/rubies/ruby-2.1.2/bin/ruby -e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift) /Users/RiverGracefish/workspace/self_study/pragmatic_studio/ruby_course/video_2_hello_ruby.rb
+    /Users/.rvm/rubies/ruby-2.1.2/bin/ruby -e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)
+    /Users/UserName/workspace/self_study/pragmatic_studio/ruby_course/video_2_hello_ruby.rb
     Ruby is fun!
     RUBY IS FUN!
     RUBY IS FUN!
@@ -322,4 +323,297 @@ Chapter 3: Numbers and Strings
     Dive Deeper
     To learn more about numbers and strings, refer to Section 6.1, Numbers and Section 6.2, Strings in Programming Ruby.
 
-Chapter 4: 
+Chapter 4: Variables and Objects
+
+    We need more than just one player in the game, so that means we need more Variables. Our Objects need to create
+    more players and print them out. We are going start with the movie app, and do the game as exercise.
+        $ irb
+        2.1.2 :001 > movie = "Goonies"
+         => "Goonies"
+        2.1.2 :002 > movie
+         => "Goonies"
+        2.1.2 :003 > "Mikey's favorite movie is #{movie}"
+         => "Mikey's favorite movie is Goonies"
+        2.1.2 :004 > movie = "Ghostbusters"
+         => "Ghostbusters"
+        2.1.2 :005 > "Mikey's favorite movie is #{movie}"
+         => "Mikey's favorite movie is Ghostbusters"
+        2.1.2 :006 > movie.class
+         => String
+        2.1.2 :007 > thumbs_up = 10
+         => 10
+        2.1.2 :008 > thumbs_down = 2
+         => 2
+        2.1.2 :009 > rank = thumbs_up - thumbs_down
+         => 8
+        2.1.2 :010 > rank.class
+         => Fixnum
+        2.1.2 :011 > current_time = Time.new
+         => 2015-06-02 18:51:39 -0600
+        2.1.2 :012 > "The time is #{current_time}"
+         => "The time is 2015-06-02 18:51:39 -0600"
+        2.1.2 :013 > current_time.class
+         => Time
+        2.1.2 :014 >
+    Remember the Variables hold the reference of the objects, not the object themselves.
+    Think of Variables just a point to somebody, and Objects is somebody live in somewhere.
+        2.1.2 :014 > my_favorite_movie = "Goonies"
+         => "Goonies"
+        2.1.2 :015 > your_favorite_movie = my_favorite_movie
+         => "Goonies"
+        2.1.2 :016 > my_favorite_movie.object_id
+         => 70318832601980
+        2.1.2 :017 > your_favorite_movie.object_id
+         => 70318832601980
+        2.1.2 :018 > my_favorite_movie[0] = "L"
+         => "L"
+        2.1.2 :019 > my_favorite_movie
+         => "Loonies"
+        2.1.2 :020 > your_favorite_movie
+         => "Loonies"
+        2.1.2 :021 > my_favorite_movie = "Ghostbusters"
+         => "Ghostbusters"
+        2.1.2 :022 > your_favorite_movie
+         => "Loonies"
+        2.1.2 :023 >
+    Both variables my_favorite_movie and your_favorite_movie are point to the same object "Goonies",
+    so when we change the first letter to 'L', both variables get change to "Loonies".
+    When we reassign my_favorite_movie to different Object "Ghostbusters", your_favorite_movie still assign to "Loonies"
+    Now we have two variables and two objects. Objects can also do things. We can sending the object a message
+    by calling the method.
+        2.1.2 :023 > movie = "Goonies"
+         => "Goonies"
+        2.1.2 :024 > movie.length
+         => 7
+        2.1.2 :025 > movie.reverse
+         => "seinooG"
+        2.1.2 :026 > movie.center(10)
+         => " Goonies  "
+        2.1.2 :027 > movie.ljust(30, '.')
+         => "Goonies......................."
+        2.1.2 :028 > rank = 8
+         => 8
+        2.1.2 :029 > rank.to_s
+         => "8"
+        2.1.2 :030 > rank.to_f
+         => 8.0
+        2.1.2 :031 > rank.to_i
+         => 8
+        2.1.2 :032 > rank * 2
+         => 16
+        2.1.2 :033 > rank.*(2)
+         => 16
+        2.1.2 :034 > rank * 2
+         => 16
+        2.1.2 :035 > current_time = Time.new
+         => 2015-06-02 19:15:10 -0600
+        2.1.2 :036 > current_time.hour
+         => 19
+        2.1.2 :037 > current_time.min
+         => 15
+        2.1.2 :038 >
+    The Objects(Receiver) is usually on the left, and come with a dot following the message which is the method name
+    and parameters. For more info of Ruby method, we can go to http://ruby-doc.org/
+        2.1.2 :038 > movie = ""
+         => ""
+        2.1.2 :039 > movie.empty?
+         => true
+        2.1.2 :040 > movie = "Goonies"
+         => "Goonies"
+        2.1.2 :041 > movie.empty?
+         => false
+        2.1.2 :042 > movie.start_with?("G")
+         => true
+        2.1.2 :043 > movie.include?("x")
+         => false
+        2.1.2 :044 > movie = "Ghostbusters"
+         => "Ghostbusters"
+        2.1.2 :045 > movie.reverse
+         => "sretsubtsohG"
+        2.1.2 :046 > movie
+         => "Ghostbusters"
+        2.1.2 :047 > movie.reverse!
+         => "sretsubtsohG"
+        2.1.2 :048 > movie
+         => "sretsubtsohG"
+        2.1.2 :049 > movie = "ghostbusters"
+         => "ghostbusters"
+        2.1.2 :050 > title = movie.capitalize
+         => "Ghostbusters"
+        2.1.2 :051 > title = movie.ljust(30, '.')
+         => "ghostbusters.................."
+        2.1.2 :052 > title = movie.capitalize.ljust(30, '.')
+         => "Ghostbusters.................."
+        2.1.2 :053 > rank = 9
+         => 9
+        2.1.2 :054 > "#{title} #{rank}"
+         => "Ghostbusters.................. 9"
+        2.1.2 :055 > exit
+
+    Variables and Objects
+    Exercises
+
+    Objective
+    At this point, we really only have one complete player: larry with a health of 60.
+    Our other players—curly and moe—haven't yet been assigned a health.
+    In this exercise, we'll give them some life and also add a fourth player.
+    The goal is to print out each player's name and health with a slightly different format,
+    like so:
+
+    Larry has a health of 60.
+    CURLY has a health of 125.
+    *************Moe has a health of 100.*************
+    Shemp........................... 90 health
+    Along the way we'll practice assigning objects to variables, calling methods on those objects,
+    and finding documentation on methods in Ruby's standard library.
+
+    1. Player #1: Larry
+    As our game stands now, we have two variables holding onto the name and health of the first player:
+
+    name1 = "larry"
+    health1 = 60
+    Our first formatting task is to capitalize the name.
+
+    We've seen a few string methods, but we've barely scratched the surface of what Ruby strings can do.
+    Thankfully, you don't have to remember all the string-related methods.
+    The web http://ruby-doc.org/ allows you to view information about Ruby classes, modules, and methods
+    from the comfort of your command line.
+
+    The instance methods are the methods that you can call on a String object.
+
+    Now narrow it down to get more information about the capitalize method.
+
+    Finally, returning to our objective, back in your studio_game.rb file change how the first player is printed
+    so his name is capitalized. Using the two variables above, here's the output you want:
+
+    Larry has a health of 60.
+
+    2. Player #2: Curly
+    For our second player, we want to print his information with the name in all uppercase letters.
+
+    Create variables for a second player with the name "curly" and an initial health of 125.
+    Then use those variables to print his information like this:
+
+    CURLY has a health of 125.
+    If you don't remember the method to capitalize all the characters in a String, don't hesitate to use
+    http://ruby-doc.org/  to look it up
+
+    Now it's time to experiment a little. Add two lines to the bottom of the program file:
+    change Curly's health variable to point to Larry's health variable and print out Curly's information again.
+
+    What do you expect to see? Re-run the program.
+
+    Finally, add a few more lines to the bottom of the program. Reassign Larry's health variable to be 30.
+    Then print out the name and health of both players again.
+
+    What result do you expect for Larry and Curly now? Re-run the program.
+
+    The assignment of variables can be a bit tricky, especially when variables reference other variables.
+    You should now have:
+
+    Larry has a health of 30.
+    CURLY has a health of 60.
+    Make sure you understand why this works before moving on.
+    Don't hesitate to go back and watch the part in the video about the variables my_favorite_movie and
+    your_favorite_movie if you need help. Or grab a sharpie and a napkin and draw it out for yourself if that helps.
+
+    3. Player #3: Moe
+    The third player's information needs to be printed so that it's all centered and padded with asterisks.
+
+    Use the documentation to find the method that centers a string. Note that the first parameter (the length)
+    is required, but the second parameter for the character to use as padding is optional.
+    Try the examples in irb to get a feel for how the method works.
+
+    Create variables for a third player with the name "moe" and an initial health of 100.
+    Then use those variables to print his information like so:
+
+    ************Moe has a health of 100.************
+    There are at least two ways to do this, so experiment a little before looking at the answer.
+
+    Show Hint
+    You will need to call two methods: capitalize and center.
+
+    4. Player #4: Shemp
+    Create a fourth player named "shemp" with an initial health of 90.
+    Use variables to print out his information with the name capitalized and left-justified, like this:
+
+    Shemp........................... 90 health
+    There are at least two ways to do this, so experiment a little before looking at the answer.
+
+    5. Reverse It
+    In the video, we used the reverse method to print a reversed version of the string "Goonies".
+    What happens if you try to reverse a number, such as a player's health. Try it by opening an irb session and typing:
+
+    >> 123.reverse
+    Hmm, why doesn't that work?
+
+    Take a moment to study the error message:
+
+    NoMethodError: undefined method `reverse' for 123:Fixnum
+    Any time you see an error like this, take the time to read it.
+    This is Ruby's way of trying to help us understand what went wrong.
+    And in this case, the error is quite helpful. It's saying that it couldn't find a reverse method to call on
+    the object 123, which is a Fixnum.
+
+    Indeed, if you look up the documentation for the reverse method you'll find that it's not defined on the
+    Fixnum class. So even though you can call methods on objects, only certain methods are defined on certain classes
+    of objects.
+
+    We know we can reverse a string, so how could we convert a number object to a string object?
+    It turns out that all objects in Ruby have a to_s method that converts the object to its string representation.
+    Using this tip, try chaining methods together to reverse the number 123 again.
+
+    Show Answer: >> 123.to_s.reverse
+
+    How then would you convert the reversed string back to an integer?
+
+    Show Answer: >> 123.to_s.reverse.to_i
+
+    6. Vocabulary Quiz
+    Learning to program can feel a bit like learning a foreign language.
+    Here are a couple sentences to help you practice your new language skills.
+
+    In the following line of code, capitalize is a (method) called on the (object) named name and assigned to the
+    (variable) named text.
+    text = "#{name.capitalize} has a health of #{health}."
+
+    In the case of the line of code below, center is a (method) that takes two (parameters).
+    puts text.center(50, '*')
+    Show Answer
+
+    Solution
+    The full solution for this exercise is in the variables-objects directory of the code bundle.
+
+    Bonus Round
+    Time Method
+    You've learned how to use the documentation and call methods on strings and numbers.
+    The Ruby standard library has a host of other classes that you can use in your programs, as well.
+
+    For example, the Time class is useful for working with dates and times.
+    Unlike strings and numbers, which we created using literal values, you create a new Time object like this:
+
+    current_time = Time.new
+    The Time class has a method called strftime that can format the time in a variety of ways.
+    Check out the method's documentation and play around with it in irb until you've got the hang of it.
+
+    Then, back in your studio_game.rb file, print the date and time the game started so that it's formatted like this:
+
+    The game started on Tuesday 03/06/2012 at 10:43AM
+
+    Fundraising Program
+    If you're building the fundraising program, your next step is to assign a funding amount to each project. In other words, how much funding does each project have so far? Then, experiment with different formats for printing out each project's name and funding amount.
+
+    The solution for this bonus app exercise is in the variables-objects directory of the code bundle.
+
+    Wrap Up
+    Nicely done! Now you have all the game players introducing themselves. In this exercise you learned how to:
+
+    assign variables
+    call built-in methods
+    pass parameters to methods
+    chain together multiple method calls
+    look up methods in the Ruby documentation
+    But what if you want to do something for which there isn't a built-in Ruby method? Well, then it's time to write your own method! We'll do that in the next section.
+
+    For a quick summary on strings and variables, as well as summaries for the upcoming modules, download the course summary PDF for easy reference.
+

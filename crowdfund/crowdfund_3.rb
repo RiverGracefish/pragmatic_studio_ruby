@@ -1,8 +1,8 @@
-project_1 = 'Project ABC'
-project_2 = 'Project LMN'
-project_3 = 'Project XYZ'
-funding_1 = 1000
+project1 = 'Project ABC'
+project2 = 'Project LMN'
+project3 = 'Project XYZ'
+funding1 = 1000
 
-puts "#{project_1} has $#{funding_1} in funding."
+puts "#{project1} has $#{funding1} in funding."
 
-puts "Projects: \n\t#{project_1}\n\t#{project_2}\n\t#{project_3}"
+puts "Projects: \n\t#{project1}\n\t#{project2}\n\t#{project3}"
