@@ -57,7 +57,7 @@ Chapter 2: Running Ruby
     2.1.2 :010 > commnt
     NameError: undefined local variable or method `commnt' for main:Object
     	from (irb):10
-    	from /Users/RiverGracefish/.rvm/rubies/ruby-2.1.2/bin/irb:11:in `<main>'
+    	from /Users/UserName/.rvm/rubies/ruby-2.1.2/bin/irb:11:in `<main>'
     2.1.2 :011 > exit
 
 
@@ -157,7 +157,8 @@ Chapter 2: Running Ruby
     Run the program to make sure you get what you expect!
 
     Run Shift + Control + R in my RubyMine:
-    /Users/RiverGracefish/.rvm/rubies/ruby-2.1.2/bin/ruby -e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift) /Users/RiverGracefish/workspace/self_study/pragmatic_studio/ruby_course/studio_game/studio_game_2.rb
+    /Users/UsersName/.rvm/rubies/ruby-2.1.2/bin/ruby -e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)
+    /Users/UsersName/workspace/self_study/pragmatic_studio/ruby_course/studio_game/studio_game_2.rb
     Welcome!
     WELCOME!
     WELCOME!
@@ -165,3 +166,160 @@ Chapter 2: Running Ruby
     2015-05-21 20:29:53 -0600
 
     Process finished with exit code 0
+
+Chapter 3: Numbers and Strings
+
+    Every game needs a player, we will start with print out a player's name and a health value. We'll need to learn
+    Numbers and Strings to do this, and you will use this in any ruby program you write. It's a good place to start
+    learning. So in the exercise we will need to print out " Larry's health is 60 ". We are going to look at a similar
+    example, and use numbers and strings to print out " Goonies has a rank of 10 ". After that, we can do something
+    similar to the Larry player.
+        In my iTerm:
+        $ irb
+        2.1.2 :001 > 7 * 3
+         => 21
+        2.1.2 :002 > 4.99 + 1.99
+         => 6.98
+        2.1.2 :003 > 25 / 2
+         => 12
+        2.1.2 :004 > 25 / 2.0
+         => 12.5
+        2.1.2 :005 > merits = 10 * 2
+         => 20
+        2.1.2 :006 > demerits = 0.5 * 3
+         => 1.5
+        2.1.2 :007 > rank = merits - demerits
+         => 18.5
+        2.1.2 :008 > merits.class
+         => Fixnum
+        2.1.2 :009 > demerits.class
+         => Float
+        2.1.2 :010 >exit
+    Now we know how to use Number. The next thing is the name, in ruby, that just the string.
+    In Ruby, they come with double quotes and single quotes. Let's look at this in Ruby file.
+    I did touch video_3_flicks.rb and get into this file:
+
+    Numbers and Strings
+    Exercises
+
+    Objective
+    Now that you know a bit more about numbers and strings, we'll start to add some players to the game.
+    The goal of this exercise is to print out info about our initial player and a list of all the players.
+    Here's the output we're shooting for:
+
+    larry's health is 60
+
+    Players:
+      larry
+      curly
+      moe
+    1. Print Player Info
+    Each player has a name (a string) and an initial health value (an integer number).
+    We need a way to remember a player's name and health so we can refer to them later on in the game.
+    To do that, we'll need to assign the name and health values to variables.
+
+    Variables simply name things in our program. It's important to give the variables good names so it's easy to tell
+    what they're referencing. Ruby has some variable naming rules: variable names can be a mix of letter and numbers
+    (or an underscore), and the first character of a variable name must be a lowercase letter or an underscore.
+
+    For example, the first player's name could be stored in the variable name1. Sometimes the best variable name has
+    more than one word, in which case you separate the words with an underscore. For example, a good name for a
+    player's high score would be high_score.
+
+    With that in mind, let's create our first player...
+
+    Go ahead and delete the code currently in your studio_game.rb file so you have a clean slate.
+
+    The name of our first player is "larry" (he prefers the lowercase pronunciation). Create a variable to remember
+    that name. In other words, assign the player's name to the variable.
+
+    Larry's initial health value is 60. Create a second variable and assign the health value to it.
+
+    Next, using those two variables, create the single-quoted string "larry's health is 60" and print it out to the
+    console. Keep in mind that in a single-quoted string, you'll need to use a backslash to escape the apostrophe in
+    the possessive form of the player's name.
+
+    Don't forget to run the program to check your work!
+
+    All that escaping and concatenation gets kinda tedious, doesn't it? This is a case where a double-quoted string would make things a lot easier. So change the single-quoted string to a double-quoted string and substitute (interpolate) the name and health values into the string.
+
+    Show Hint
+    Rather than using + for concatenation, use #{} to substitute the name and health values directly into the string.
+
+    Run the program to make sure you're getting the same output as before.
+
+    Now that you're getting the hang of it, give this a try: How would you change the double-quoted string to
+    triple Larry's health?
+
+    OK, now what if you wanted to divide Larry's health by 9 and have the answer printed out with decimals
+    (a float) or without decimals (an integer)?
+
+    Experimenting with code is a great way to learn, so play around a bit until you're comfortable.
+
+    2. Print a List of Players
+    In addition to being able to substitute the value of any Ruby expression into a double-quoted string,
+    double-quoted strings also support various escape sequences that start with a backslash character.
+    For example, you use \n for a newline character and \t for a tab character. When a string is evaluated,
+    Ruby looks for these escape sequences and replaces them with their equivalent character.
+
+    Print out a list of players in the game formatted like this
+
+    Players:
+      larry
+      curly
+      moe
+    Notice that each player's name is printed on a separate line and indented with a tab.
+    There are at least two ways to do this. First try it without using any variables.
+
+    Then change it to use variables for each player's name.
+
+    Make sure to run your program file to check the formatting.
+
+    Solution
+    All the exercise solutions for the game app you're writing,
+    as well as the example code for the movie app we're writing in the videos,
+    is available for download in the code bundle file (right-click to save).
+    No peeking until you try! When you unzip the file, you'll end up with a directory called pragstudio-ruby-code.
+    Inside that directory, you'll find two sub-directories: example-code and exercise-solutions.
+    The code is organized into directories matching the names of the course modules.
+
+    The full solution for this exercise is in the numbers-strings directory of the code bundle.
+
+    Bonus Round
+    Start Creating a Third Ruby Program
+    For folks who want even more practice writing Ruby, here's an idea you could experiment with alongside
+    the game program: a fundraising program. This program would track various projects (start-up projects,
+    community projects, personal projects, etc.) and how much funding each project has received so far.
+    For inspiration, check out Kickstarter, Pledgie, gofundme, or indiegogo.
+
+    At the end of each module, we'll include a list of fundraising program requirements for you to implement.
+    Please consider these requirements as non-exhaustive guidelines for building this program.
+    If you think something else should be added, changed, or removed, go for it! There are no right answers.
+    Be creative, experiment, don't be afraid of error messages, and have fun trying new things!
+
+    To get started, create a new program (call it crowdfund, for example) and print out info about your initial project
+    and a list of all your projects. Something like:
+
+    Project ABC has $1000 in funding.
+
+    Projects:
+      Project ABC
+      Project LMN
+      Project XYZ
+    The solution for this bonus app exercise is in the numbers-strings directory of the code bundle.
+
+    Wrap Up
+    OK, now we have some players in the game. The game doesn't do much yet, but at least it's a start in the
+    right direction. In the process, you got some practice and learned how to:
+
+    use single and double-quoted strings
+    concatenate strings
+    mix strings and numbers
+    use escape sequences
+    evaluate (interpolate) Ruby code within a double-quoted string using #{}
+    In the next section we'll spiff up the game's intro by creating objects and calling their methods!
+
+    Dive Deeper
+    To learn more about numbers and strings, refer to Section 6.1, Numbers and Section 6.2, Strings in Programming Ruby.
+
+Chapter 4: 
